@@ -1,0 +1,10 @@
+name: AmongUS
+version: 1.0
+author: Toze
+main: fr.Toze.amongus.Main
+commands:
+ cameras:
+ hologram:
+ tasktest:
+ meeting:
+ ranks:

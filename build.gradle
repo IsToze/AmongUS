@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'fr.il_totore.manadrop' version '0.4.1-SNAPSHOT'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+compileJava.options.encoding = 'UTF-8'
+
+import static fr.il_totore.manadrop.MinecraftRepositoryHelper.*
+import static fr.il_totore.manadrop.MinecraftDependencyHelper.*
+
+repositories {
+
+    maven { url "http://jitpack.io" }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+ 	maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT' // The Spigot API with no shadowing. Requires the OSS repo.
+  	compileOnly 'org.bukkit:bukkit:1.8.8-R0.1-SNAPSHOT' // The Bukkit API with no shadowing.
+  	compileOnly 'org.spigotmc:spigot:1.8.8-R0.1-SNAPSHOT' // The full Spigot server with no shadowing. Requires mavenLocal.
+  	compileOnly 'org.bukkit:craftbukkit:1.8.8-R0.1-SNAPSHOT' // The full CraftBukkit server with no shadowing. Requires mavenLocal.
+}
